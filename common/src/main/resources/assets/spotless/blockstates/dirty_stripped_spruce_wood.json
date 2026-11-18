@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,stage=1": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_1",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,stage=1": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_1"
+    },
+    "axis=z,stage=1": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_1",
+      "x": 90
+    },
+    "axis=x,stage=2": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_2",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,stage=2": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_2"
+    },
+    "axis=z,stage=2": {
+      "model": "spotless:block/dirty_stripped_spruce_wood_2",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "spotless:block/family_portrait"
+    },
+    "facing=east": {
+      "model": "spotless:block/family_portrait",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "spotless:block/family_portrait",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "spotless:block/family_portrait",
+      "y": 270
+    }
+  }
+}

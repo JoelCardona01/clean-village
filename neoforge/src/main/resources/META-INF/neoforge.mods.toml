@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/JoelCardona01/spotless-villages/issues"
+
+[[mods]]
+modId = "spotless"
+version = "${version}"
+displayName = "Spotless Villages"
+authors = "Joel Cardona"
+displayURL = "https://github.com/JoelCardona01/spotless-villages"
+logoFile = "assets/spotless/icon.png"
+description = '''
+Some village houses are filthy and their owner is heartbroken. Scrub them spotless with a sponge, a brush and a duster, and watch the villager celebrate.
+'''
+
+[[mixins]]
+config = "spotless.mixins.json"
+
+[[dependencies.spotless]]
+modId = "neoforge"
+type = "required"
+versionRange = "[26.3,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.spotless]]
+modId = "minecraft"
+type = "required"
+versionRange = "[26.3,26.4)"
+ordering = "NONE"
+side = "BOTH"

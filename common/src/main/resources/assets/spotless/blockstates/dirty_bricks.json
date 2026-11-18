@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=1": {
+      "model": "spotless:block/dirty_bricks_1"
+    },
+    "stage=2": {
+      "model": "spotless:block/dirty_bricks_2"
+    }
+  }
+}

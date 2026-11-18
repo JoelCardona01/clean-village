@@ -1,0 +1,13 @@
+{
+  "parent": "spotless:block/dirty_cube",
+  "textures": {
+    "down": "minecraft:block/bricks",
+    "up": "minecraft:block/bricks",
+    "north": "minecraft:block/bricks",
+    "south": "minecraft:block/bricks",
+    "west": "minecraft:block/bricks",
+    "east": "minecraft:block/bricks",
+    "particle": "minecraft:block/bricks",
+    "overlay": "spotless:block/dirt_overlay_1"
+  }
+}

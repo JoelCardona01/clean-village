@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "spotless",
+  "version": "${version}",
+  "name": "Spotless Villages",
+  "description": "Some village houses are filthy and their owner is heartbroken. Scrub them spotless with a sponge, a brush and a duster, and watch the villager celebrate.",
+  "authors": ["Joel Cardona"],
+  "contact": {
+    "homepage": "https://github.com/JoelCardona01/spotless-villages",
+    "sources": "https://github.com/JoelCardona01/spotless-villages",
+    "issues": "https://github.com/JoelCardona01/spotless-villages/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/spotless/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.spotless.fabric.SpotlessFabric"]
+  },
+  "mixins": ["spotless.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

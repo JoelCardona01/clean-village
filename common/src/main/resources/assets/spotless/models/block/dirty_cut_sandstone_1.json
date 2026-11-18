@@ -1,0 +1,13 @@
+{
+  "parent": "spotless:block/dirty_cube",
+  "textures": {
+    "down": "minecraft:block/sandstone_top",
+    "up": "minecraft:block/sandstone_top",
+    "north": "minecraft:block/cut_sandstone",
+    "south": "minecraft:block/cut_sandstone",
+    "west": "minecraft:block/cut_sandstone",
+    "east": "minecraft:block/cut_sandstone",
+    "particle": "minecraft:block/cut_sandstone",
+    "overlay": "spotless:block/dirt_overlay_1"
+  }
+}
