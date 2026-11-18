@@ -3,7 +3,7 @@
 Offline build for Clean Village (common + Fabric + NeoForge + Forge).
 
 Minecraft 26.x is not obfuscated, so the mod compiles directly against the game jar
-with no remapping. Put the compile jars in a folder (default ./libs, or $CASALIMPIA_LIBS):
+with no remapping. Put the compile jars in a folder (default ./libs, or $CLEANVILLAGE_LIBS):
   minecraft-26.3.jar, brigadier, datafixerupper, guava, gson, fastutil, slf4j-api, log4j-api,
   jspecify, joml, netty-*, authlib, logging, commons-lang3, sponge-mixin, fabric-loader,
   fabric-api-base, fabric-creative-tab-api-v1, neoforge-*-universal, loader-*, bus-*,
@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 VERSION = "1.0.0+mc26.3"
-LIBS = Path(os.environ.get("CASALIMPIA_LIBS", ROOT / "libs"))
+LIBS = Path(os.environ.get("CLEANVILLAGE_LIBS", os.environ.get("CASALIMPIA_LIBS", ROOT / "libs")))
 BUILD = ROOT / "build"
 JAVAC = os.environ.get("JAVAC", "javac")
 RELEASE = os.environ.get("JAVA_RELEASE", "21")

@@ -4,7 +4,6 @@
 
 Some village houses are filthy, and their owner sits on the edge of the bed, heartbroken. Grab the soapy sponge from the chest, scrub every stain, cobweb and patch of mold, and watch the villager come home, jump with joy to a little jingle and throw you a hand-written thank-you letter and a reward.
 
-*In Spanish: **Casa Limpia**.*
 
 <p align="center"><img src="media/scrubbing.gif" alt="Scrubbing a dirty house" width="600"> <img src="media/celebration.gif" alt="Celebration" width="600"></p>
 

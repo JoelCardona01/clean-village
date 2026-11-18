@@ -2,7 +2,7 @@
 
 Decisiones respecto a la especificación (docs/SPEC.md):
 
-- **Nombre**: se publica en inglés como *Clean Village* (id `cleanvillage`); en castellano, *Casa Limpia*.
+- **Nombre**: *Clean Village* (id `cleanvillage`) en todos los idiomas.
 - **Herramientas (H1–H5)**: simplificado a una sola herramienta, la *Esponja jabonosa*, que limpia todo
   (mugre, moho, telarañas, bloques sucios y vidrio empañado). Se usa con clic derecho mantenido o clic izquierdo.
   Cuando se seca, se recarga con clic derecho sobre agua. Receta: lana amarilla + bola de slime.
