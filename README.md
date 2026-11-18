@@ -62,9 +62,12 @@ The project is split like an Architectury multiloader project (`common/`, `fabri
 ```
 python3 tools/gen_assets.py <unzipped client jar> <folder with vanilla lang jsons>   # textures, models, lang, data
 python3 tools/gen_logo.py                                                           # logo, banner, mod icon
-python3 build.py            # -> build/libs/cleanvillage-{fabric,neoforge,forge}-<version>.jar
+python3 tools/fetch_libs.py libs   # downloads Minecraft, Fabric, NeoForge and Forge compile jars
+CLEANVILLAGE_LIBS=libs python3 build.py   # -> build/libs/cleanvillage-{fabric,neoforge,forge}-<version>.jar
 python3 build.py --dev      # same + dev-only script runner used for automated in-game tests
 ```
+
+**GitHub Actions** (`.github/workflows/build.yml`) does this on every push and pull request and uploads the three jars as the `cleanvillage-jars` artifact. Pushing a tag such as `v1.0.0` also creates a GitHub release with the jars attached.
 
 `tools/harness.py` runs a headless Fabric server with the mod and a list of console commands (used by the validator agent in `.claude/agents/`).
 
