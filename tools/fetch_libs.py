@@ -117,9 +117,9 @@ def forge():
     save(maven_url(FORGE_MAVEN, "net.minecraftforge", "forge", FORGE, "universal"))
     for a in ("fmlcore", "fmlloader", "javafmllanguage"):
         fetch_coord("net.minecraftforge", a, FORGE, repos=[FORGE_MAVEN])
-    for g, a, v in pom_dependencies(FORGE_MAVEN, "net.minecraftforge", "forge", FORGE):
-        if a in ("eventbus", "bus", "forgespi"):
-            fetch_coord(g, a, v)
+    # EventBus 7 (BusGroup API) and the SPI the mod loader exposes; versions used by Forge 66.1.x
+    fetch_coord("net.minecraftforge", "eventbus", os.environ.get("FORGE_EVENTBUS", "7.0.6"), repos=[FORGE_MAVEN])
+    fetch_coord("net.minecraftforge", "forgespi", os.environ.get("FORGE_SPI", "8.0.0"), repos=[FORGE_MAVEN])
 
 
 if __name__ == "__main__":
