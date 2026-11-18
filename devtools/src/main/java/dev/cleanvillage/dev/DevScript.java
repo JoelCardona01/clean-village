@@ -20,7 +20,8 @@ import java.util.List;
  * DEV ONLY (not shipped in release jars). Lets the test agent drive the client without keyboard focus:
  * it polls <gameDir>/cleanvillage-dev/script.txt, runs one line per tick and appends results to log.txt.
  * Lines: wait N | cmd <command> | chat <text> | screenshot <name> | hud on|off | use N | attack N |
- *        look <yaw> <pitch> | slot N | close | key <keymapping name> N
+ *        look <yaw> <pitch> | slot N | close | key <keymapping name> N | fov N | gamma X | clearchat |
+ *        burst <name> <count> <everyTicks> | pan <yaw0> <pitch0> <yaw1> <pitch1> <ticks>
  */
 public final class DevScript {
     private static final Deque<String> QUEUE = new ArrayDeque<>();
@@ -30,6 +31,10 @@ public final class DevScript {
     private static int keyTicks;
     private static net.minecraft.client.KeyMapping heldKey;
     private static int poll;
+    private static String burstName;
+    private static int burstLeft, burstEvery, burstTimer, burstIndex;
+    private static float panY0, panP0, panY1, panP1;
+    private static int panTicks, panTotal;
 
     private DevScript() {}
 
@@ -64,6 +69,21 @@ public final class DevScript {
         else if (useTicks > 0) mc.options.keyUse.setDown(true);
         if (attackTicks > 0 && --attackTicks == 0) mc.options.keyAttack.setDown(false);
         if (keyTicks > 0 && --keyTicks == 0 && heldKey != null) heldKey.setDown(false);
+        if (panTicks > 0 && mc.player != null) {
+            panTicks--;
+            float t = 1f - panTicks / (float) panTotal;
+            t = t * t * (3 - 2 * t);
+            float y = panY0 + (panY1 - panY0) * t, pp = panP0 + (panP1 - panP0) * t;
+            mc.player.setYRot(y); mc.player.setYHeadRot(y); mc.player.setXRot(pp);
+            mc.player.yRotO = y; mc.player.xRotO = pp;
+        }
+        if (burstLeft > 0 && --burstTimer <= 0) {
+            burstTimer = burstEvery;
+            burstLeft--;
+            String n = String.format("%s_%03d.png", burstName, burstIndex++);
+            Screenshot.grab(mc.gameDirectory, n, mc.gameRenderer.mainRenderTarget(), 1, c -> {});
+            if (burstLeft == 0) log(mc, "burst done " + burstName + " x" + burstIndex);
+        }
         if (waitTicks > 0) {
             waitTicks--;
             return;
@@ -132,6 +152,20 @@ public final class DevScript {
                     mc.player.setYHeadRot(yaw);
                     mc.player.setXRot(pitch);
                 }
+            }
+            case "fov" -> mc.options.fov().set(Integer.parseInt(arg.trim()));
+            case "gamma" -> mc.options.gamma().set(Double.parseDouble(arg.trim()));
+            case "clearchat" -> mc.gui.hud.getChat().clearMessages(false);
+            case "burst" -> {
+                String[] a = arg.split(" ");
+                burstName = a[0]; burstLeft = Integer.parseInt(a[1]); burstEvery = Integer.parseInt(a[2]);
+                burstTimer = 0; burstIndex = 0;
+            }
+            case "pan" -> {
+                String[] a = arg.split(" ");
+                panY0 = Float.parseFloat(a[0]); panP0 = Float.parseFloat(a[1]);
+                panY1 = Float.parseFloat(a[2]); panP1 = Float.parseFloat(a[3]);
+                panTotal = panTicks = Integer.parseInt(a[4]);
             }
             case "slot" -> {
                 if (mc.player != null) mc.player.getInventory().setSelectedSlot(Integer.parseInt(arg.trim()));

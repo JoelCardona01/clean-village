@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[66,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/JoelCardona01/clean-village/issues"
+
+[[mods]]
+modId = "cleanvillage"
+version = "${version}"
+displayName = "Clean Village"
+authors = "Joel Cardona"
+displayURL = "https://github.com/JoelCardona01/clean-village"
+logoFile = "assets/cleanvillage/icon.png"
+description = '''
+Some village houses are filthy and their owner is heartbroken. Scrub them clean with a soapy sponge, and watch the villager celebrate.
+'''
+
+[[dependencies.cleanvillage]]
+modId = "forge"
+mandatory = true
+versionRange = "[66,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.cleanvillage]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[26.3,26.4)"
+ordering = "NONE"
+side = "BOTH"

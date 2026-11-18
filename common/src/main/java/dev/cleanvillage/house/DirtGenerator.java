@@ -1,5 +1,6 @@
 package dev.cleanvillage.house;
 
+import dev.cleanvillage.block.Cleanable;
 import dev.cleanvillage.block.DirtyBlock;
 import dev.cleanvillage.block.DirtyPaneBlock;
 import dev.cleanvillage.block.GrimeBlock;
@@ -187,7 +188,7 @@ public final class DirtGenerator {
                 EnumSet<Direction> faces = EnumSet.noneOf(Direction.class);
                 for (Direction d : Direction.values()) {
                     BlockPos n = c.relative(d);
-                    if (MultifaceBlock.canAttachTo(level, d, n, level.getBlockState(n))) faces.add(d);
+                    if (canHoldLayer(level, d, n)) faces.add(d);
                 }
                 if (faces.isEmpty()) continue;
                 int horizontal = 0;
@@ -228,7 +229,7 @@ public final class DirtGenerator {
                 EnumSet<Direction> faces = EnumSet.noneOf(Direction.class);
                 for (Direction d : Direction.Plane.HORIZONTAL) {
                     BlockPos n = p.relative(d);
-                    if (box.isInside(n) && MultifaceBlock.canAttachTo(level, d, n, level.getBlockState(n))) faces.add(d);
+                    if (box.isInside(n) && canHoldLayer(level, d, n)) faces.add(d);
                 }
                 if (faces.isEmpty() || rnd.nextDouble() > 0.3) continue;
                 if (rnd.nextDouble() < 0.45) {
@@ -243,6 +244,12 @@ public final class DirtGenerator {
             r.units = units;
         });
         return r;
+    }
+
+    /** A grime/mold layer may only stick to a clean block: never stack it on an already dirty block. */
+    private static boolean canHoldLayer(ServerLevel level, Direction d, BlockPos n) {
+        BlockState s = level.getBlockState(n);
+        return !(s.getBlock() instanceof Cleanable) && MultifaceBlock.canAttachTo(level, d, n, s);
     }
 
     private static int grimeLevel(RandomSource rnd) {

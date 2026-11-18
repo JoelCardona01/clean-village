@@ -12,10 +12,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
@@ -107,16 +105,17 @@ public class CleaningToolItem extends Item {
             entity.releaseUsingItem();
             return;
         }
-        HitResult hit = ProjectileUtil.getHitResultOnViewVector(player, EntitySelector.CAN_BE_PICKED, player.blockInteractionRange());
+        // Same outline raycast as the crosshair: grime/mold/cobwebs have no collision, so a collider
+        // ray would pass through them and scrub the block behind instead (that is why they only came off with left click).
+        HitResult hit = player.pick(player.blockInteractionRange(), 1.0f, false);
         if (!(hit instanceof BlockHitResult bhr) || hit.getType() != HitResult.Type.BLOCK) {
             entity.releaseUsingItem();
             return;
         }
         BlockState state = level.getBlockState(bhr.getBlockPos());
-        if (!Cleaning.canClean(state, kind)) {
-            entity.releaseUsingItem();
-            return;
-        }
+        // Keep scrubbing while the button is held: sweeping over an already clean block just pauses
+        // until the crosshair reaches the next stain (stopping here made sweeping feel choppy).
+        if (!Cleaning.canClean(state, kind)) return;
         if (level instanceof ServerLevel server && player instanceof ServerPlayer sp) {
             int used = getUseDuration(stack, entity) - remaining;
             int need = Math.max(1, Cleaning.scrubTicks(state, kind, bhr.getDirection()));

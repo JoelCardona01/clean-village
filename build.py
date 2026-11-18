@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Offline build for Clean Village (common + Fabric + NeoForge).
+Offline build for Clean Village (common + Fabric + NeoForge + Forge).
 
 Minecraft 26.x is not obfuscated, so the mod compiles directly against the game jar
 with no remapping. Put the compile jars in a folder (default ./libs, or $CASALIMPIA_LIBS):
   minecraft-26.3.jar, brigadier, datafixerupper, guava, gson, fastutil, slf4j-api, log4j-api,
   jspecify, joml, netty-*, authlib, logging, commons-lang3, sponge-mixin, fabric-loader,
-  fabric-api-base, fabric-creative-tab-api-v1, neoforge-*-universal, loader-*, bus-*.
+  fabric-api-base, fabric-creative-tab-api-v1, neoforge-*-universal, loader-*, bus-*,
+  forge-26.3-*-universal, eventbus-7*, fmlcore, fmlloader, javafmllanguage, forgespi.
 
-Usage:  python3 build.py            -> build/libs/cleanvillage-{fabric,neoforge}-<version>.jar
+Usage:  python3 build.py            -> build/libs/cleanvillage-{fabric,neoforge,forge}-<version>.jar
 """
 import os
 import shutil
@@ -64,9 +65,10 @@ def package(loader, classes):
     out = BUILD / "libs" / (f"cleanvillage-{loader}-{VERSION}" + ("-dev" if DEV else "") + ".jar")
     out.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(out, "w") as z:
+        mixins = "cleanvillage.mixins.json" + (",cleanvillage-dev.mixins.json" if DEV and loader == "forge" else "")
         z.writestr("META-INF/MANIFEST.MF",
                    "Manifest-Version: 1.0\nImplementation-Title: cleanvillage\n"
-                   f"Implementation-Version: {VERSION}\nMixinConfigs: cleanvillage.mixins.json\n")
+                   f"Implementation-Version: {VERSION}\nMixinConfigs: {mixins}\n")
         add_tree(z, BUILD / "classes" / "common")
         add_tree(z, ROOT / "common/src/main/resources")
         add_tree(z, classes)
@@ -103,10 +105,14 @@ def main():
     neo_out = BUILD / "classes" / "neoforge"
     compile_module("neoforge", ROOT / "neoforge/src/main/java",
                    base + [str(common_out)] + jars("neoforge", "loader-", "bus-"), neo_out)
+    forge_out = BUILD / "classes" / "forge"
+    compile_module("forge", ROOT / "forge/src/main/java",
+                   base + [str(common_out)] + jars("forge-26", "eventbus-", "fmlcore", "fmlloader", "javafmllanguage", "forgespi"), forge_out)
     if DEV:
         compile_module("devtools", ROOT / "devtools/src/main/java", base + [str(common_out)], BUILD / "classes" / "devtools")
     package("fabric", fabric_out)
     package("neoforge", neo_out)
+    package("forge", forge_out)
 
 
 if __name__ == "__main__":

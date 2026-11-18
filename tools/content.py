@@ -254,7 +254,7 @@ UI = {
                                  "%s steht auf und wartet an der Tür.", "%s si alza e aspetta alla porta."),
     "message.cleanvillage.halfway": ("%s peeks in: \"It looks so much better!\"", "%s se asoma: «¡Se ve mucho mejor!»", "%s jette un œil : « C'est tellement mieux ! »",
                                  "%s schaut herein: „Es sieht schon viel besser aus!“", "%s sbircia dentro: «Va molto meglio!»"),
-    "message.cleanvillage.thanks": ("%s's house is cleanvillage! Read your letter.", "¡La casa de %s está reluciente! Mira tu carta.", "La maison de %s est impeccable ! Lis ta lettre.",
+    "message.cleanvillage.thanks": ("%s's house is spotless! Read your letter.", "¡La casa de %s está reluciente! Mira tu carta.", "La maison de %s est impeccable ! Lis ta lettre.",
                                 "Das Haus von %s ist blitzblank! Lies deinen Brief.", "La casa di %s è splendente! Leggi la tua lettera."),
     "subtitles.cleanvillage.scrub": ("Scrubbing", "Frotando", "Frottement", "Schrubben", "Strofinare"),
     "subtitles.cleanvillage.bubbles": ("Soap bubbles", "Burbujas de jabón", "Bulles de savon", "Seifenblasen", "Bolle di sapone"),

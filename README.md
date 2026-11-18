@@ -6,7 +6,11 @@ Some village houses are filthy, and their owner sits on the edge of the bed, hea
 
 *In Spanish: **Casa Limpia**.*
 
-<p align="center"><img src="media/before_after.gif" alt="Before and after" width="640"></p>
+<p align="center"><img src="media/scrubbing.gif" alt="Scrubbing a dirty house" width="600"> <img src="media/celebration.gif" alt="Celebration" width="600"></p>
+
+<p align="center"><img src="media/before_after.gif" alt="Before and after" width="600"></p>
+
+▶️ Trailer: [`media/trailer.mp4`](media/trailer.mp4)
 
 ## How to play
 
@@ -50,16 +54,16 @@ The reward is a data-pack loot table: `data/cleanvillage/loot_table/gameplay/hou
 ## Requirements
 
 - Minecraft **26.3** (Java 25)
-- **Fabric** Loader ≥ 0.19.3 + Fabric API, or **NeoForge** 26.3
+- **Fabric** Loader ≥ 0.19.3 + Fabric API, **NeoForge** 26.3 or **Forge** 66 (26.3)
 
 ## Building
 
-The project is split like an Architectury multiloader project (`common/`, `fabric/`, `neoforge/`). Minecraft 26.x is not obfuscated, so the mod compiles directly against the game jar with no remapping:
+The project is split like an Architectury multiloader project (`common/`, `fabric/`, `neoforge/`, `forge/`). Minecraft 26.x is not obfuscated, so the mod compiles directly against the game jar with no remapping:
 
 ```
 python3 tools/gen_assets.py <unzipped client jar> <folder with vanilla lang jsons>   # textures, models, lang, data
 python3 tools/gen_logo.py                                                           # logo, banner, mod icon
-python3 build.py            # -> build/libs/cleanvillage-{fabric,neoforge}-<version>.jar
+python3 build.py            # -> build/libs/cleanvillage-{fabric,neoforge,forge}-<version>.jar
 python3 build.py --dev      # same + dev-only script runner used for automated in-game tests
 ```
 
@@ -68,3 +72,7 @@ python3 build.py --dev      # same + dev-only script runner used for automated i
 ## License
 
 MIT © Joel Cardona
+
+### Store media
+
+`python3 tools/make_media.py <captures dir>` rebuilds the stills, GIFs and the trailer in `media/` from in-game captures taken with the dev script runner (`python3 build.py --dev`).
