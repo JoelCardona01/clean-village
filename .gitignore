@@ -4,3 +4,4 @@ libs
 .idea/
 run/
 dist/
+__pycache__/
