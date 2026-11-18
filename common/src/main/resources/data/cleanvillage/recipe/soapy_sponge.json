@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:yellow_wool",
+    "minecraft:slime_ball"
+  ],
+  "result": {
+    "id": "cleanvillage:soapy_sponge"
+  }
+}

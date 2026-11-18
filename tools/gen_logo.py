@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Draws the Spotless Villages logo, banner and mod icon (original pixel art, no Mojang assets)."""
+"""Draws the Clean Village logo, banner and mod icon (original pixel art, no Mojang assets)."""
 import random
 from pathlib import Path
 
@@ -22,7 +22,7 @@ FONT = {
     "E": ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
     "V": ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
     "G": ["01111", "10000", "10000", "10011", "10001", "10001", "01111"],
-    "N": ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
+    "N": ["10001", "11001", "11001", "10101", "10011", "10011", "10001"],
     " ": ["000", "000", "000", "000", "000", "000", "000"],
 }
 
@@ -136,8 +136,8 @@ def banner():
     d.rectangle([0, 72, W, H], fill=(134, 96, 67, 255))
     house(c, 8, 44, rnd)
     # title
-    draw_text(c, "SPOTLESS", 50, 12, 3, (255, 255, 255, 255), (30, 60, 110, 255), (20, 40, 80, 160))
-    draw_text(c, "VILLAGES", 50, 40, 3, (120, 220, 255, 255), (30, 60, 110, 255), (20, 40, 80, 160))
+    draw_text(c, "CLEAN", 50, 12, 3, (255, 255, 255, 255), (30, 60, 110, 255), (20, 40, 80, 160))
+    draw_text(c, "VILLAGE", 50, 40, 3, (120, 220, 255, 255), (30, 60, 110, 255), (20, 40, 80, 160))
     for (bx, by, r) in ((44, 12, 2), (196, 64, 2), (192, 8, 2)):
         bubble(d, bx, by, r)
     sparkle(d, 196, 36, True)
@@ -159,7 +159,7 @@ def icon():
     img = c.resize((W * S, W * S), Image.NEAREST)
     img.save(OUT / "icon.png")
     small = c.resize((128, 128), Image.NEAREST)
-    p = ROOT / "common/src/main/resources/assets/spotless/icon.png"
+    p = ROOT / "common/src/main/resources/assets/cleanvillage/icon.png"
     small.save(p)
     return img
 

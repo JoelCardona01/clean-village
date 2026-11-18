@@ -1,0 +1,13 @@
+{
+  "parent": "cleanvillage:block/dirty_cube",
+  "textures": {
+    "down": "minecraft:block/snow",
+    "up": "minecraft:block/snow",
+    "north": "minecraft:block/snow",
+    "south": "minecraft:block/snow",
+    "west": "minecraft:block/snow",
+    "east": "minecraft:block/snow",
+    "particle": "minecraft:block/snow",
+    "overlay": "cleanvillage:block/dirt_overlay_2"
+  }
+}

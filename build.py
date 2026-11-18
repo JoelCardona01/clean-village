@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Offline build for Spotless Villages (common + Fabric + NeoForge).
+Offline build for Clean Village (common + Fabric + NeoForge).
 
 Minecraft 26.x is not obfuscated, so the mod compiles directly against the game jar
 with no remapping. Put the compile jars in a folder (default ./libs, or $CASALIMPIA_LIBS):
@@ -8,7 +8,7 @@ with no remapping. Put the compile jars in a folder (default ./libs, or $CASALIM
   jspecify, joml, netty-*, authlib, logging, commons-lang3, sponge-mixin, fabric-loader,
   fabric-api-base, fabric-creative-tab-api-v1, neoforge-*-universal, loader-*, bus-*.
 
-Usage:  python3 build.py            -> build/libs/spotless-{fabric,neoforge}-<version>.jar
+Usage:  python3 build.py            -> build/libs/cleanvillage-{fabric,neoforge}-<version>.jar
 """
 import os
 import shutil
@@ -61,12 +61,12 @@ DEV = "--dev" in sys.argv
 
 
 def package(loader, classes):
-    out = BUILD / "libs" / (f"spotless-{loader}-{VERSION}" + ("-dev" if DEV else "") + ".jar")
+    out = BUILD / "libs" / (f"cleanvillage-{loader}-{VERSION}" + ("-dev" if DEV else "") + ".jar")
     out.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(out, "w") as z:
         z.writestr("META-INF/MANIFEST.MF",
-                   "Manifest-Version: 1.0\nImplementation-Title: spotless\n"
-                   f"Implementation-Version: {VERSION}\nMixinConfigs: spotless.mixins.json\n")
+                   "Manifest-Version: 1.0\nImplementation-Title: cleanvillage\n"
+                   f"Implementation-Version: {VERSION}\nMixinConfigs: cleanvillage.mixins.json\n")
         add_tree(z, BUILD / "classes" / "common")
         add_tree(z, ROOT / "common/src/main/resources")
         add_tree(z, classes)
@@ -76,9 +76,9 @@ def package(loader, classes):
                 arc = p.relative_to(res).as_posix()
                 data = p.read_bytes().replace(b"${version}", VERSION.encode())
                 if DEV and arc == "fabric.mod.json":
-                    data = data.replace(b'"mixins": ["spotless.mixins.json"]', b'"mixins": ["spotless.mixins.json", "spotless-dev.mixins.json"]')
+                    data = data.replace(b'"mixins": ["cleanvillage.mixins.json"]', b'"mixins": ["cleanvillage.mixins.json", "cleanvillage-dev.mixins.json"]')
                 if DEV and arc.endswith("neoforge.mods.toml"):
-                    data = data.replace(b'config = "spotless.mixins.json"', b'config = "spotless.mixins.json"\n\n[[mixins]]\nconfig = "spotless-dev.mixins.json"')
+                    data = data.replace(b'config = "cleanvillage.mixins.json"', b'config = "cleanvillage.mixins.json"\n\n[[mixins]]\nconfig = "cleanvillage-dev.mixins.json"')
                 z.writestr(zipfile.ZipInfo(arc, date_time=(2026, 11, 18, 0, 0, 0)), data, zipfile.ZIP_DEFLATED)
         if DEV:
             add_tree(z, BUILD / "classes" / "devtools")

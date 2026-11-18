@@ -6,7 +6,7 @@ Nov 17, 2026 · @Joel
 
 En algunas aldeas aparecen 1–2 casas muy sucias; el jugador las limpia con herramientas que deja el propio aldeano, y al terminar el aldeano celebra con música y le entrega una carta de agradecimiento y una recompensa.
 
-**Nombre provisional:** Casa Limpia (en inglés, *Spotless Villages*). Pendiente de confirmar.
+**Nombre provisional:** Casa Limpia (en inglés, *Clean Village*). Pendiente de confirmar.
 
 **Experiencia objetivo:** de la tristeza a la alegría en 10–20 minutos. El jugador debe sentir tres cosas, en este orden:
 

@@ -1,6 +1,6 @@
-<p align="center"><img src="media/banner.png" alt="Spotless Villages" width="720"></p>
+<p align="center"><img src="media/banner.png" alt="Clean Village" width="720"></p>
 
-# Spotless Villages
+# Clean Village
 
 Some village houses are filthy, and their owner sits on the edge of the bed, heartbroken. Grab the soapy sponge from the chest, scrub every stain, cobweb and patch of mold, and watch the villager come home, jump with joy to a little jingle and throw you a hand-written thank-you letter and a reward.
 
@@ -29,7 +29,7 @@ Crafting the sponge for your own base: **yellow wool + slime ball** (shapeless).
 
 ## Configuration
 
-`config/spotless.json` (created on first launch):
+`config/cleanvillage.json` (created on first launch):
 
 | Key | Default | Meaning |
 | --- | --- | --- |
@@ -41,11 +41,11 @@ Crafting the sponge for your own base: **yellow wool + slime ball** (shapeless).
 | `unitsPerExtraRoll` / `maxLootRolls` | `40` / `4` | Bigger houses roll the reward table more times |
 | `ambientSounds` | `true` | Dripping and distant rain inside dirty houses |
 
-The reward is a data-pack loot table: `data/spotless/loot_table/gameplay/house_reward.json` (override it in a datapack).
+The reward is a data-pack loot table: `data/cleanvillage/loot_table/gameplay/house_reward.json` (override it in a datapack).
 
 ## Commands (operators)
 
-`/spotless list | info | tp <id> | where <id> | verify <id> | phase <id> <sad|cleaning|celebrating|done> | scrub <id> <n> | complete <id> | remove <id> | here | village | testhouse`
+`/cleanvillage list | info | tp <id> | where <id> | verify <id> | phase <id> <sad|cleaning|celebrating|done> | scrub <id> <n> | complete <id> | remove <id> | here | village | testhouse`
 
 ## Requirements
 
@@ -59,7 +59,7 @@ The project is split like an Architectury multiloader project (`common/`, `fabri
 ```
 python3 tools/gen_assets.py <unzipped client jar> <folder with vanilla lang jsons>   # textures, models, lang, data
 python3 tools/gen_logo.py                                                           # logo, banner, mod icon
-python3 build.py            # -> build/libs/spotless-{fabric,neoforge}-<version>.jar
+python3 build.py            # -> build/libs/cleanvillage-{fabric,neoforge}-<version>.jar
 python3 build.py --dev      # same + dev-only script runner used for automated in-game tests
 ```
 

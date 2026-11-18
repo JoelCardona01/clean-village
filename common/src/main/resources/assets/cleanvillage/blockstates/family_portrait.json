@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cleanvillage:block/family_portrait"
+    },
+    "facing=east": {
+      "model": "cleanvillage:block/family_portrait",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cleanvillage:block/family_portrait",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cleanvillage:block/family_portrait",
+      "y": 270
+    }
+  }
+}

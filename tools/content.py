@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""All player-facing texts of Spotless Villages (en_us + es_es). Used by gen_assets.py."""
+"""All player-facing texts of Clean Village (en_us + es_es). Used by gen_assets.py."""
 
 
 def es_dirty(base):
@@ -226,42 +226,42 @@ WAIT_IT = ["Forza! Si vede la differenza!", "Aspetto qui fuori, non voglio distu
 
 UI = {
     # key: (en, es, fr, de, it)
-    "item.spotless.soapy_sponge": ("Soapy Sponge", "Esponja jabonosa", "Éponge savonneuse", "Seifenschwamm", "Spugna insaponata"),
-    "item.spotless.soapy_sponge.hint1": ("Hold right or left click on dirt to scrub it", "Mantén clic derecho o izquierdo sobre la suciedad para frotar",
+    "item.cleanvillage.soapy_sponge": ("Soapy Sponge", "Esponja jabonosa", "Éponge savonneuse", "Seifenschwamm", "Spugna insaponata"),
+    "item.cleanvillage.soapy_sponge.hint1": ("Hold right or left click on dirt to scrub it", "Mantén clic derecho o izquierdo sobre la suciedad para frotar",
                                           "Maintiens clic droit ou gauche sur la saleté pour frotter", "Halte Rechts- oder Linksklick auf Schmutz, um zu schrubben",
                                           "Tieni premuto il clic destro o sinistro sullo sporco per strofinare"),
-    "item.spotless.soapy_sponge.hint2": ("Right click on water to soak it again", "Clic derecho en el agua para volver a mojarla",
+    "item.cleanvillage.soapy_sponge.hint2": ("Right click on water to soak it again", "Clic derecho en el agua para volver a mojarla",
                                           "Clic droit sur l'eau pour la remouiller", "Rechtsklick auf Wasser, um ihn wieder nass zu machen",
                                           "Clic destro sull'acqua per bagnarla di nuovo"),
-    "block.spotless.family_portrait": ("Family Portrait", "Retrato de familia", "Portrait de famille", "Familienporträt", "Ritratto di famiglia"),
-    "item.spotless.family_portrait.lore": ("A gift from %s and family", "Un regalo de %s y su familia", "Un cadeau de %s et sa famille",
+    "block.cleanvillage.family_portrait": ("Family Portrait", "Retrato de familia", "Portrait de famille", "Familienporträt", "Ritratto di famiglia"),
+    "item.cleanvillage.family_portrait.lore": ("A gift from %s and family", "Un regalo de %s y su familia", "Un cadeau de %s et sa famille",
                                            "Ein Geschenk von %s und Familie", "Un regalo di %s e famiglia"),
-    "block.spotless.grime": ("Grime", "Mugre", "Crasse", "Schmutz", "Sporcizia"),
-    "block.spotless.mold": ("Mold", "Moho", "Moisissure", "Schimmel", "Muffa"),
-    "block.spotless.dusty_cobweb": ("Dusty Cobweb", "Telaraña polvorienta", "Toile poussiéreuse", "Staubige Spinnwebe", "Ragnatela polverosa"),
-    "bossbar.spotless.house": ("%s's house: %s%%", "Casa de %s: %s%%", "Maison de %s : %s%%", "Haus von %s: %s%%", "Casa di %s: %s%%"),
-    "book.spotless.story.title": ("What happened to my house", "Lo que le pasó a mi casa", "Ce qui est arrivé à ma maison",
+    "block.cleanvillage.grime": ("Grime", "Mugre", "Crasse", "Schmutz", "Sporcizia"),
+    "block.cleanvillage.mold": ("Mold", "Moho", "Moisissure", "Schimmel", "Muffa"),
+    "block.cleanvillage.dusty_cobweb": ("Dusty Cobweb", "Telaraña polvorienta", "Toile poussiéreuse", "Staubige Spinnwebe", "Ragnatela polverosa"),
+    "bossbar.cleanvillage.house": ("%s's house: %s%%", "Casa de %s: %s%%", "Maison de %s : %s%%", "Haus von %s: %s%%", "Casa di %s: %s%%"),
+    "book.cleanvillage.story.title": ("What happened to my house", "Lo que le pasó a mi casa", "Ce qui est arrivé à ma maison",
                                   "Was mit meinem Haus passiert ist", "Cosa è successo alla mia casa"),
-    "book.spotless.letter.title": ("Thank-you letter from %s", "Carta de agradecimiento de %s", "Lettre de remerciement de %s",
+    "book.cleanvillage.letter.title": ("Thank-you letter from %s", "Carta de agradecimiento de %s", "Lettre de remerciement de %s",
                                    "Dankesbrief von %s", "Lettera di ringraziamento di %s"),
-    "chat.spotless.villager": ("<%s> %s",) * 5,
-    "message.spotless.sponge_dry": ("The sponge is dry: right click on water to soak it.", "La esponja está seca: haz clic derecho en el agua para mojarla.",
+    "chat.cleanvillage.villager": ("<%s> %s",) * 5,
+    "message.cleanvillage.sponge_dry": ("The sponge is dry: right click on water to soak it.", "La esponja está seca: haz clic derecho en el agua para mojarla.",
                                     "L'éponge est sèche : clic droit sur l'eau pour la mouiller.", "Der Schwamm ist trocken: Rechtsklick auf Wasser, um ihn nass zu machen.",
                                     "La spugna è asciutta: clic destro sull'acqua per bagnarla."),
-    "message.spotless.sponge_recharged": ("Sponge soaked and full of soap!", "¡Esponja mojada y llena de jabón!", "Éponge mouillée et pleine de savon !",
+    "message.cleanvillage.sponge_recharged": ("Sponge soaked and full of soap!", "¡Esponja mojada y llena de jabón!", "Éponge mouillée et pleine de savon !",
                                           "Schwamm nass und voller Seife!", "Spugna bagnata e piena di sapone!"),
-    "message.spotless.started": ("%s gets up and waits by the door.", "%s se levanta y sale a esperar a la puerta.", "%s se lève et attend près de la porte.",
+    "message.cleanvillage.started": ("%s gets up and waits by the door.", "%s se levanta y sale a esperar a la puerta.", "%s se lève et attend près de la porte.",
                                  "%s steht auf und wartet an der Tür.", "%s si alza e aspetta alla porta."),
-    "message.spotless.halfway": ("%s peeks in: \"It looks so much better!\"", "%s se asoma: «¡Se ve mucho mejor!»", "%s jette un œil : « C'est tellement mieux ! »",
+    "message.cleanvillage.halfway": ("%s peeks in: \"It looks so much better!\"", "%s se asoma: «¡Se ve mucho mejor!»", "%s jette un œil : « C'est tellement mieux ! »",
                                  "%s schaut herein: „Es sieht schon viel besser aus!“", "%s sbircia dentro: «Va molto meglio!»"),
-    "message.spotless.thanks": ("%s's house is spotless! Read your letter.", "¡La casa de %s está reluciente! Mira tu carta.", "La maison de %s est impeccable ! Lis ta lettre.",
+    "message.cleanvillage.thanks": ("%s's house is cleanvillage! Read your letter.", "¡La casa de %s está reluciente! Mira tu carta.", "La maison de %s est impeccable ! Lis ta lettre.",
                                 "Das Haus von %s ist blitzblank! Lies deinen Brief.", "La casa di %s è splendente! Leggi la tua lettera."),
-    "subtitles.spotless.scrub": ("Scrubbing", "Frotando", "Frottement", "Schrubben", "Strofinare"),
-    "subtitles.spotless.bubbles": ("Soap bubbles", "Burbujas de jabón", "Bulles de savon", "Seifenblasen", "Bolle di sapone"),
-    "subtitles.spotless.sparkle": ("Sparkle", "Brillo", "Scintillement", "Funkeln", "Scintillio"),
-    "subtitles.spotless.drip": ("Dripping", "Goteo", "Gouttes", "Tropfen", "Gocciolio"),
-    "subtitles.spotless.sponge_dry": ("Sponge dries out", "Esponja seca", "L'éponge sèche", "Schwamm trocknet aus", "La spugna si secca"),
-    "itemGroup.spotless": ("Spotless Villages",) * 5,
+    "subtitles.cleanvillage.scrub": ("Scrubbing", "Frotando", "Frottement", "Schrubben", "Strofinare"),
+    "subtitles.cleanvillage.bubbles": ("Soap bubbles", "Burbujas de jabón", "Bulles de savon", "Seifenblasen", "Bolle di sapone"),
+    "subtitles.cleanvillage.sparkle": ("Sparkle", "Brillo", "Scintillement", "Funkeln", "Scintillio"),
+    "subtitles.cleanvillage.drip": ("Dripping", "Goteo", "Gouttes", "Tropfen", "Gocciolio"),
+    "subtitles.cleanvillage.sponge_dry": ("Sponge dries out", "Esponja seca", "L'éponge sèche", "Schwamm trocknet aus", "La spugna si secca"),
+    "itemGroup.cleanvillage": ("Clean Village",) * 5,
 }
 LANGS = ["en_us", "es_es", "fr_fr", "de_de", "it_it"]
 DATA = {
@@ -287,14 +287,14 @@ def build(lang):
     stories, letters, sad, wait = DATA[lang]
     for a, pages in enumerate(stories):
         for j, p in enumerate(pages):
-            T[f"book.spotless.story.{a}.page{j + 1}"] = p
+            T[f"book.cleanvillage.story.{a}.page{j + 1}"] = p
     for a, pages in enumerate(letters):
         for j, p in enumerate(pages):
-            T[f"book.spotless.letter.{a}.page{j + 1}"] = p
+            T[f"book.cleanvillage.letter.{a}.page{j + 1}"] = p
     for a, x in enumerate(sad):
-        T[f"villager.spotless.sad.{a + 1}"] = x
+        T[f"villager.cleanvillage.sad.{a + 1}"] = x
     for a, x in enumerate(wait):
-        T[f"villager.spotless.waiting.{a + 1}"] = x
+        T[f"villager.cleanvillage.waiting.{a + 1}"] = x
     return T
 
 

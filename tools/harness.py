@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Headless test harness: starts a Fabric dedicated server (Minecraft 26.3) with Spotless Villages,
+Headless test harness: starts a Fabric dedicated server (Minecraft 26.3) with Clean Village,
 runs a list of console commands and prints the server log. Used by the validator agent.
 
 Usage: python3 tools/harness.py [--fresh] [--wait SECONDS] "cmd1" "cmd2" ...
@@ -39,9 +39,9 @@ def main():
         for d in ("world", "logs", "crash-reports"):
             shutil.rmtree(SERVER / d, ignore_errors=True)
     built = ROOT / "build/libs"
-    for old in (SERVER / "mods").glob("spotless-*.jar"):
+    for old in (SERVER / "mods").glob("cleanvillage-*.jar"):
         old.unlink()
-    for j in [x for x in built.glob("spotless-fabric-*.jar") if "-dev" not in x.name]:
+    for j in [x for x in built.glob("cleanvillage-fabric-*.jar") if "-dev" not in x.name]:
         shutil.copy(j, SERVER / "mods" / j.name)
     cmd = ["java", "-Xmx3G", "--enable-preview", f"-Dfabric.gameJarPath={MC}",
            "-Dfabric.debug.replaceVersion=java:25", "-cp", classpath(),

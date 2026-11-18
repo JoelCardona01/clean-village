@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=1": {
+      "model": "cleanvillage:block/dirty_stone_bricks_1"
+    },
+    "stage=2": {
+      "model": "cleanvillage:block/dirty_stone_bricks_2"
+    }
+  }
+}

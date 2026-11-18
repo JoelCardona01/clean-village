@@ -1,0 +1,13 @@
+{
+  "parent": "cleanvillage:block/dirty_cube",
+  "textures": {
+    "down": "minecraft:block/acacia_log",
+    "up": "minecraft:block/acacia_log",
+    "north": "minecraft:block/acacia_log",
+    "south": "minecraft:block/acacia_log",
+    "west": "minecraft:block/acacia_log",
+    "east": "minecraft:block/acacia_log",
+    "particle": "minecraft:block/acacia_log",
+    "overlay": "cleanvillage:block/dirt_overlay_1"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,stage=1": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_1",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,stage=1": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_1"
+    },
+    "axis=z,stage=1": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_1",
+      "x": 90
+    },
+    "axis=x,stage=2": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_2",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,stage=2": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_2"
+    },
+    "axis=z,stage=2": {
+      "model": "cleanvillage:block/dirty_dark_oak_log_2",
+      "x": 90
+    }
+  }
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generates every asset and data file of Spotless Villages:
+Generates every asset and data file of Clean Village:
  - 16x16 textures (pixel art made procedurally + derived from vanilla textures)
  - blockstates / block models / item models
  - en_us + es_es (+ es_mx, es_ar) lang files
@@ -19,8 +19,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 RES = ROOT / "common/src/main/resources"
-A = RES / "assets/spotless"
-D = RES / "data/spotless"
+A = RES / "assets/cleanvillage"
+D = RES / "data/cleanvillage"
 VAN = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/mcx")
 VLANG = Path(sys.argv[2]) if len(sys.argv) > 2 else None  # folder with vanilla <lang>.json files
 VT = VAN / "assets/minecraft/textures"
@@ -335,27 +335,27 @@ def gen_models():
             tx = dict(t)
             tx.pop("particle")
             tx["particle"] = t["particle"]
-            tx["overlay"] = f"spotless:block/dirt_overlay_{stage}"
-            write_json(bm / f"dirty_{name}_{stage}.json", {"parent": "spotless:block/dirty_cube", "textures": tx})
+            tx["overlay"] = f"cleanvillage:block/dirt_overlay_{stage}"
+            write_json(bm / f"dirty_{name}_{stage}.json", {"parent": "cleanvillage:block/dirty_cube", "textures": tx})
         if pillar:
             variants = {}
             for stage in (1, 2):
-                m = f"spotless:block/dirty_{name}_{stage}"
+                m = f"cleanvillage:block/dirty_{name}_{stage}"
                 variants[f"axis=x,stage={stage}"] = {"model": m, "x": 90, "y": 90}
                 variants[f"axis=y,stage={stage}"] = {"model": m}
                 variants[f"axis=z,stage={stage}"] = {"model": m, "x": 90}
         else:
-            variants = {f"stage={s}": {"model": f"spotless:block/dirty_{name}_{s}"} for s in (1, 2)}
+            variants = {f"stage={s}": {"model": f"cleanvillage:block/dirty_{name}_{s}"} for s in (1, 2)}
         write_json(A / f"blockstates/dirty_{name}.json", {"variants": variants})
 
     # fogged glass pane
-    pane_tex = {"edge": {"force_translucent": True, "sprite": "spotless:block/dirty_glass_pane_top"},
-                "pane": {"force_translucent": True, "sprite": "spotless:block/dirty_glass"}}
+    pane_tex = {"edge": {"force_translucent": True, "sprite": "cleanvillage:block/dirty_glass_pane_top"},
+                "pane": {"force_translucent": True, "sprite": "cleanvillage:block/dirty_glass"}}
     for part in ("post", "side", "side_alt", "noside", "noside_alt"):
         write_json(bm / f"dirty_glass_pane_{part}.json", {"parent": f"minecraft:block/template_glass_pane_{part}", "textures": pane_tex})
     gp = json.loads((VAN / "assets/minecraft/blockstates/glass_pane.json").read_text())
     for e in gp["multipart"]:
-        e["apply"]["model"] = e["apply"]["model"].replace("minecraft:block/glass_pane", "spotless:block/dirty_glass_pane")
+        e["apply"]["model"] = e["apply"]["model"].replace("minecraft:block/glass_pane", "cleanvillage:block/dirty_glass_pane")
     write_json(A / "blockstates/dirty_glass_pane.json", gp)
 
     # grime & mold: multiface, one model per level, glow-lichen layout
@@ -365,7 +365,7 @@ def gen_models():
         for lvl in levels:
             write_json(bm / f"{prefix}_{lvl}.json", {
                 "ambientocclusion": False,
-                "textures": {"particle": f"spotless:block/{prefix}_{lvl}", "layer": f"spotless:block/{prefix}_{lvl}"},
+                "textures": {"particle": f"cleanvillage:block/{prefix}_{lvl}", "layer": f"cleanvillage:block/{prefix}_{lvl}"},
                 "elements": [{"from": [0, 0, 0.1], "to": [16, 16, 0.1],
                               "faces": {"north": {"uv": [16, 0, 0, 16], "texture": "#layer"},
                                         "south": {"uv": [0, 0, 16, 16], "texture": "#layer"}}}]})
@@ -374,19 +374,19 @@ def gen_models():
                 if not any(v == "true" for v in when.values()):
                     continue
                 apply = dict(e["apply"])
-                apply["model"] = f"spotless:block/{prefix}_{lvl}"
+                apply["model"] = f"cleanvillage:block/{prefix}_{lvl}"
                 w = dict(when)
                 w["level"] = str(lvl)
                 parts.append({"apply": apply, "when": w})
         write_json(A / f"blockstates/{block}.json", {"multipart": parts})
 
-    write_json(bm / "dusty_cobweb.json", {"parent": "minecraft:block/cross", "textures": {"cross": "spotless:block/dusty_cobweb"}})
-    write_json(A / "blockstates/dusty_cobweb.json", {"variants": {"": {"model": "spotless:block/dusty_cobweb"}}})
+    write_json(bm / "dusty_cobweb.json", {"parent": "minecraft:block/cross", "textures": {"cross": "cleanvillage:block/dusty_cobweb"}})
+    write_json(A / "blockstates/dusty_cobweb.json", {"variants": {"": {"model": "cleanvillage:block/dusty_cobweb"}}})
 
     # family portrait: thin framed box on the wall (facing = direction the picture looks at)
     write_json(bm / "family_portrait.json", {
-        "textures": {"particle": "spotless:block/family_portrait_frame", "front": "spotless:block/family_portrait",
-                     "frame": "spotless:block/family_portrait_frame"},
+        "textures": {"particle": "cleanvillage:block/family_portrait_frame", "front": "cleanvillage:block/family_portrait",
+                     "frame": "cleanvillage:block/family_portrait_frame"},
         "elements": [{"from": [2, 3, 15], "to": [14, 14, 16], "faces": {
             "north": {"uv": [0, 0, 16, 16], "texture": "#front"},
             "south": {"uv": [0, 0, 16, 16], "texture": "#frame", "cullface": "south"},
@@ -395,10 +395,10 @@ def gen_models():
             "west": {"uv": [0, 0, 1, 16], "texture": "#frame"},
             "east": {"uv": [15, 0, 16, 16], "texture": "#frame"}}}]})
     write_json(A / "blockstates/family_portrait.json", {"variants": {
-        "facing=north": {"model": "spotless:block/family_portrait"},
-        "facing=east": {"model": "spotless:block/family_portrait", "y": 90},
-        "facing=south": {"model": "spotless:block/family_portrait", "y": 180},
-        "facing=west": {"model": "spotless:block/family_portrait", "y": 270}}})
+        "facing=north": {"model": "cleanvillage:block/family_portrait"},
+        "facing=east": {"model": "cleanvillage:block/family_portrait", "y": 90},
+        "facing=south": {"model": "cleanvillage:block/family_portrait", "y": 180},
+        "facing=west": {"model": "cleanvillage:block/family_portrait", "y": 270}}})
 
     # item models
     im = A / "models/item"
@@ -410,38 +410,38 @@ def gen_models():
     }
     for it in ("soapy_sponge",):
         model = {"parent": "minecraft:item/handheld" if it in ("scrub_brush", "feather_duster") else "minecraft:item/generated",
-                 "textures": {"layer0": f"spotless:item/{it}"}}
+                 "textures": {"layer0": f"cleanvillage:item/{it}"}}
         if it == "soapy_sponge":
             model["display"] = tool_display
         write_json(im / f"{it}.json", model)
-        write_json(A / f"items/{it}.json", {"model": {"type": "minecraft:model", "model": f"spotless:item/{it}"}})
-    write_json(im / "family_portrait.json", {"parent": "minecraft:item/generated", "textures": {"layer0": "spotless:block/family_portrait"}})
-    write_json(A / "items/family_portrait.json", {"model": {"type": "minecraft:model", "model": "spotless:item/family_portrait"}})
+        write_json(A / f"items/{it}.json", {"model": {"type": "minecraft:model", "model": f"cleanvillage:item/{it}"}})
+    write_json(im / "family_portrait.json", {"parent": "minecraft:item/generated", "textures": {"layer0": "cleanvillage:block/family_portrait"}})
+    write_json(A / "items/family_portrait.json", {"model": {"type": "minecraft:model", "model": "cleanvillage:item/family_portrait"}})
 
 
 # ---------------------------------------------------------------- sounds
 def gen_sounds():
     write_json(A / "sounds.json", {
-        "scrub": {"subtitle": "subtitles.spotless.scrub", "sounds": [
+        "scrub": {"subtitle": "subtitles.cleanvillage.scrub", "sounds": [
             {"name": "minecraft:item/brush/brushing_generic1", "pitch": 1.3, "volume": 0.8},
             {"name": "minecraft:item/brush/brushing_generic2", "pitch": 1.25, "volume": 0.8},
             {"name": "minecraft:item/brush/brushing_generic3", "pitch": 1.35, "volume": 0.8},
             {"name": "minecraft:block/sponge/step3", "pitch": 1.2, "volume": 0.6}]},
-        "bubbles": {"subtitle": "subtitles.spotless.bubbles", "sounds": [
+        "bubbles": {"subtitle": "subtitles.cleanvillage.bubbles", "sounds": [
             {"name": "minecraft:block/bubble_column/bubble1", "pitch": 1.4, "volume": 0.6},
             {"name": "minecraft:block/bubble_column/bubble2", "pitch": 1.5, "volume": 0.6},
             {"name": "minecraft:block/bubble_column/bubble3", "pitch": 1.3, "volume": 0.6},
             {"name": "minecraft:ambient/underwater/additions/bubbles2", "pitch": 1.6, "volume": 0.5}]},
-        "sparkle": {"subtitle": "subtitles.spotless.sparkle", "sounds": [
+        "sparkle": {"subtitle": "subtitles.cleanvillage.sparkle", "sounds": [
             {"name": "minecraft:block/amethyst/shimmer", "pitch": 1.4},
             {"name": "minecraft:block/amethyst/resonate1", "pitch": 1.6, "volume": 0.7},
             {"name": "minecraft:note/icechime", "pitch": 1.5, "volume": 0.5}]},
-        "drip": {"subtitle": "subtitles.spotless.drip", "sounds": [
+        "drip": {"subtitle": "subtitles.cleanvillage.drip", "sounds": [
             {"name": "minecraft:block/pointed_dripstone/drip_water1", "volume": 0.6},
             {"name": "minecraft:block/pointed_dripstone/drip_water2", "volume": 0.6},
             {"name": "minecraft:block/pointed_dripstone/drip_water3", "volume": 0.6},
             {"name": "minecraft:block/pointed_dripstone/drip_water4", "volume": 0.6}]},
-        "sponge_dry": {"subtitle": "subtitles.spotless.sponge_dry", "sounds": [
+        "sponge_dry": {"subtitle": "subtitles.cleanvillage.sponge_dry", "sounds": [
             {"name": "minecraft:block/sponge/absorb1", "pitch": 1.4},
             {"name": "minecraft:block/sponge/absorb2", "pitch": 1.4}]},
     })
@@ -453,7 +453,7 @@ def gen_data():
     write_json(rec / "soapy_sponge.json", {
         "type": "minecraft:crafting_shapeless", "category": "equipment",
         "ingredients": ["minecraft:yellow_wool", "minecraft:slime_ball"],
-        "result": {"id": "spotless:soapy_sponge"}})
+        "result": {"id": "cleanvillage:soapy_sponge"}})
     write_json(D / "loot_table/gameplay/house_reward.json", {
         "type": "minecraft:gift",
         "pools": [
@@ -480,7 +480,7 @@ def gen_lang():
             json.loads((VAN / "assets/minecraft/lang/en_us.json").read_text(encoding="utf-8"))
         L = dict(content.TEXTS[lang])
         for name in CUBES + PILLARS + ["glass_pane"]:
-            L[f"block.spotless.dirty_{name}"] = content.dirty_name(lang, van.get(f"block.minecraft.{name}", name))
+            L[f"block.cleanvillage.dirty_{name}"] = content.dirty_name(lang, van.get(f"block.minecraft.{name}", name))
         write_json(A / f"lang/{lang}.json", L)
         if lang == "es_es":
             for variant in ("es_mx", "es_ar", "es_cl", "es_uy", "es_ve", "es_ec"):
