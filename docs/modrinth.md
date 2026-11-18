@@ -1,7 +1,7 @@
 <!--
 MODRINTH PROJECT SETUP
 Name ........ Clean Village
-Summary ..... Some village houses are filthy and their owner is heartbroken. Grab a soapy sponge, scrub the house spotless and watch the villager celebrate.
+Summary ..... Some village houses are filthy and their owner is heartbroken. Grab a soapy sponge, scrub the house clean and watch the villager celebrate.
 Categories .. Adventure, Decoration, Game Mechanics (+ tag: Worldgen)
 Environment . Client: required · Server: required
 Loaders ..... Fabric (needs Fabric API), NeoForge, Forge · Game version 26.3

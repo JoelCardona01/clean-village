@@ -9,7 +9,7 @@ Upload in this order. Titles and descriptions are ready to paste.
 | `media/03_scrubbing.jpg` | Grab the Soapy Sponge | Hold right click on dirt. Bubbles, scrubbing sounds and a sparkle on every clean block. |
 | `media/04_waiting_at_door.jpg` | Waiting by the door | As soon as you start cleaning, the owner gets up and waits outside. |
 | `media/05_celebration.jpg` | Home again | At 100% the lights come back, and the villager jumps for joy. |
-| `media/06_clean_house.jpg` | Spotless | The same room, before and after. |
+| `media/06_clean_house.jpg` | Squeaky clean | The same room, before and after. |
 | `media/07_family_portrait.jpg` | A gift to remember | Every helper gets a Family Portrait, a thank-you letter and a reward. |
 | `media/before_after.jpg` | Before / after | Side by side: the same room before and after cleaning. |
 | `media/before_after_outside.jpg` | Before / after (outside) | The same house from the street, before and after. |
