@@ -14,6 +14,6 @@ Upload in this order. Titles and descriptions are ready to paste.
 | `media/before_after.jpg` | Before / after | Side by side: the same room before and after cleaning. |
 | `media/before_after_outside.jpg` | Before / after (outside) | The same house from the street, before and after. |
 
-Trailer: `media/trailer.mp4` (50 s, 1080p) — upload to YouTube.
+Trailer: https://youtu.be/kI45YS00PCk (source file `media/trailer.mp4`, 50 s, 1080p).
 
 GIFs used inside the description: `media/scrubbing.gif`, `media/celebration.gif`, `media/before_after.gif`.

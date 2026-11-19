@@ -8,7 +8,7 @@ Loaders ..... Fabric (needs Fabric API), NeoForge, Forge · Game version 26.3
 Icon ........ media/icon.png
 Gallery ..... see docs/gallery.md (titles + descriptions ready to paste, in order; mark 01_dirty_house.jpg as "Featured")
 Links ....... Source/Issues: https://github.com/JoelCardona01/clean-village
-Trailer ...... media/trailer.mp4 → upload to YouTube and paste the link (Modrinth: "Video" in the description; CurseForge: Images tab › Videos)
+Trailer ...... https://youtu.be/kI45YS00PCk (Modrinth: "Video" in the description; CurseForge: Images tab › Videos)
 -->
 
 ![Clean Village](https://raw.githubusercontent.com/JoelCardona01/clean-village/main/media/banner.png)
@@ -27,6 +27,8 @@ Clean Village is a small, self-contained quest that hides inside the villages yo
 You clean the house, block by block, with a single tool, the **Soapy Sponge**. There are no menus and no tutorial. When the last stain is gone the villager walks back in, sees their home and celebrates, and everyone who helped is thanked in person.
 
 It is built to feel good more than to be a chore: bubbles, scrubbing sounds, a sparkle for every block that comes clean, and a house that really looks different at the end.
+
+▶️ **[Watch the trailer](https://youtu.be/kI45YS00PCk)**
 
 ![Celebration](https://raw.githubusercontent.com/JoelCardona01/clean-village/main/media/celebration.gif)
 

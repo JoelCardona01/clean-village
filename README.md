@@ -9,7 +9,7 @@ Some village houses are filthy, and their owner sits on the edge of the bed, hea
 
 <p align="center"><img src="media/before_after.gif" alt="Before and after" width="600"></p>
 
-▶️ Trailer: [`media/trailer.mp4`](media/trailer.mp4)
+▶️ [Watch the trailer on YouTube](https://youtu.be/kI45YS00PCk) · [Download on CurseForge](https://www.curseforge.com/minecraft/mc-mods/clean-village)
 
 ## How to play
 
